@@ -4,7 +4,7 @@
 </p>
 
 --- 
-## Simple bash script to automate your task in recon phase of your pentesting
+## Simple bash script to automate your task in recon phase
 
 Modules:
 
