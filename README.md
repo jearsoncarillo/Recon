@@ -1,11 +1,9 @@
 
 <p align="center">
-  <img src="https://github.com/catx0rr/Recon/tree/master/img/recon.png" alt="recon.png">
+  <img src="https://github.com/catx0rr/Recon/blob/master/img/recon.png" alt="recon.png">
 </p>
 
 > Author: catx0rr
-> Github: https://github.com/catx0rr/
-
 --- 
 ## Simple bash script to automate your task in recon phase of your pentesting
 
