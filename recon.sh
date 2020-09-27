@@ -24,7 +24,7 @@
 #	enum - Enumerate a Domain
 #	psw	- Start a ping sweep
 #	psc - Start a port scan
-# nmap - Use nmap scanner
+#	nmap - Use nmap scanner
 #	help - Help Screen
 #	exit - Quit recon.sh
 #

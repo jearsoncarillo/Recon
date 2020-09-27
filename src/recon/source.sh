@@ -3,6 +3,7 @@
 function ch_addr
 {
 	show_banner
+	
 	echo -e "${b_green}[+]${rs} Changing IP Address..\n"
 	echo -ne "${b_purple}[*]${rs} Enter New IP address: >> "
 	read getopt
@@ -24,9 +25,10 @@ function ch_addr
 function ch_port
 {
 	show_banner
+	
 	echo -e "${b_green}[+]${rs} Changing Port..\n"
-  echo -ne "${b_purple}[*]${rs} Enter a desired end port: (${b_green}2-65535${rs}) >> "
-  read getopt
+	echo -ne "${b_purple}[*]${rs} Enter a desired end port: (${b_green}2-65535${rs}) >> "
+	read getopt
 
 	# Validate and change the last occurence of PORT from the config file
 	if [[ $getopt =~ ^[0-9]{1,5}$ ]]; then
@@ -44,9 +46,10 @@ function ch_port
 function ch_domain
 {
 	show_banner
+	
 	echo -e "${b_green}[+]${rs} Changing Website Domain..\n"
-  echo -ne "${b_purple}[*]${rs} Enter a desired domain name: (i.e ${b_green}cisco.com${rs}) >> "
-  read getopt
+	echo -ne "${b_purple}[*]${rs} Enter a desired domain name: (i.e ${b_green}cisco.com${rs}) >> "
+	read getopt
 
 	# Validate and change the last occurence of the domain from the config file
 	if [[ $getopt =~ ^([A-Za-z0-9_-])+(\.[A-Za-z]{2,5})+(\.[A-Za-z]{2,5})?$ ]]; then
@@ -156,17 +159,19 @@ function nmap_err
 
     case $getopt in
       *)
-        echo
-        read -p "${b_purple}[*]${rs} Install nmap? [y/N] >> " getopt
+		echo -ne "$\n{b_purple[*]${rs} Install nmap? [y/N] >> "
+		read getopt
 
         case $getopt in
           ""|[yY]|[yY][eE][sS])
               echo -e "\n${b_green}[+]${rs} Installing nmap..\n"
               sudo apt-get install -y nmap > /dev/null
               
-              read -p "${b_green}[+]${rs} Nmap is now installed." getopt
 
-              case $getopt in
+              echo -ne "${b_green}[+]${rs} Nmap is now installed. >> " getopt
+			  read getopt
+
+			  case $getopt in
                   *)
                     show_menu
                     ;;
@@ -248,7 +253,7 @@ function enumerate_domain_save
 	for i in $(cat $path/output/$DOMAIN/subdomains.$DOMAIN.out); do host $i; done \
 	| grep "has address" | awk '{print $4}' | sort -u | tee -a $path/output/$DOMAIN/ip.$DOMAIN.out
 
-  echo -e "\n${b_green}[+]${rs} Done. Data saved on ${b_yellow}$(find "$(pwd)"/ -type f -name ip.$DOMAIN.out)${rs}
+	echo -e "\n${b_green}[+]${rs} Done. Data saved on ${b_yellow}$(find "$(pwd)"/ -type f -name ip.$DOMAIN.out)${rs}
 	"
 
 	read -p ">> " getopt
@@ -461,10 +466,11 @@ function nmap_scan
                 echo -e "\n${b_green}[+]${rs} Done. Data saved on ${b_yellow}$(find "$(pwd)"/ -type d -name nmap-$HOST)\n${rs}"
                 
                 read -p ">> " getopt
+
                 case $getopt in
-                        *)
-                                show_menu
-                                ;;
+					*)
+						show_menu
+						;;
                 esac
         fi
 }

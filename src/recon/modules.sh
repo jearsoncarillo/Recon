@@ -4,8 +4,8 @@ function start_enum_domain
 {
 	show_banner
 	echo -e "${b_purple}[*]${rs} Starting enumeration for ${b_green}$DOMAIN${rs}..\n"
-  echo -ne "${b_purple}[*]${rs} Enumerate ${b_green}$DOMAIN${rs}? [y/N] >> "
-  read getopt
+	echo -ne "${b_purple}[*]${rs} Enumerate ${b_green}$DOMAIN${rs}? [y/N] >> "
+	read getopt
 
 	case $getopt in
 		[yY]|[yY][eE][sS])
@@ -25,7 +25,7 @@ function start_ping_sweep
 	show_banner
 	echo -e "${b_purple}[*]${rs} Starting ping sweep for ${b_green}$HOST.0${rs}..\n" | cut -d'.' -f1-3,5-7
 	echo -ne "${b_purple}[*]${rs} Perform ping sweep? [y/N] >> "
-  read getopt
+	read getopt
 
 	case $getopt in
 		[yY]|[yY][eE][sS])
@@ -44,8 +44,8 @@ function start_port_scan
 {
 	show_banner
 	echo -e "${b_purple}[*]${rs} Start port scan for ${b_green}$HOST${rs}..\n" 
-  echo -ne "${b_purple}[*]${rs} Perform port scan? (${b_green}1-$PORT${rs})? [y/N] >> "
-  read getopt
+	echo -ne "${b_purple}[*]${rs} Perform port scan? (${b_green}1-$PORT${rs})? [y/N] >> "
+	read getopt
 
 	case $getopt in
 		[yY]|[yY][eE][sS])
@@ -66,7 +66,7 @@ function start_nmap_scan
 	show_banner
 	echo -e "${b_purple}[*]${rs} Start nmap scan for ${b_green}$HOST${rs}..\n"
 	echo -ne "${b_purple}[*]${rs} Perform port scan using nmap? [y/N] >> "
-  read getopt
+	read getopt
 
 	case $getopt in
 		[yY]|[yY][eE][sS])
@@ -83,8 +83,8 @@ function start_nmap_scan
 
 function scanning_options
 {
-  echo -ne "${b_purple}[*]${rs} Show only open ports? [y/N] >> "
-  read getopt
+	echo -ne "${b_purple}[*]${rs} Show only open ports? [y/N] >> "
+	read getopt
 
 	case $getopt in
 		[yY]|[yY][eE][sS])
@@ -111,9 +111,9 @@ ${b_blue}[>]${rs} Perform OS Fingerprinting = ${b_green}$OSSCAN${rs}
 ${b_blue}[>]${rs} Perform Service Scan = ${b_green}$SERVICESCAN${rs}
 ${b_blue}[>]${rs} Timing = ${b_green}"$TIMING"${rs}
 "
-  echo -ne "${b_purple}[*]${rs} Read nmap options on the configuration file? [y/N] >> "
+	echo -ne "${b_purple}[*]${rs} Read nmap options on the configuration file? [y/N] >> "
 	read getopt
-  echo
+	echo
 
 	case $getopt in
 		[yY]|[yY][eE][sS])
@@ -130,8 +130,8 @@ ${b_blue}[>]${rs} Timing = ${b_green}"$TIMING"${rs}
 
 function save_to_file
 {
-  echo -ne "${b_purple}[*]${rs} Save to output file? [y/N] >> "
-  read getopt
+	echo -ne "${b_purple}[*]${rs} Save to output file? [y/N] >> "
+	read getopt
 
 	case $getopt in
 		[yY]|[yY][eE][sS])
@@ -183,8 +183,8 @@ function port_scan
 function select_nmap_options
 {
 	function scantype {
-    echo -ne "${b_purple}[*]${rs} TCP or UDP scan? [tcp/udp] >> "
-    read getopt
+		echo -ne "${b_purple}[*]${rs} TCP or UDP scan? [tcp/udp] >> "
+		read getopt
 
 		case $getopt in
 			[tT][cC][pP])
@@ -200,7 +200,7 @@ function select_nmap_options
 
 	function defaultscripts {
 		echo -ne "${b_purple}[*]${rs} Run Default Scripts? [y/N] >> "
-    read getopt
+		read getopt
 
 		case $getopt in
 			""|[yY]|[yY][eE][sS])
@@ -216,7 +216,7 @@ function select_nmap_options
 	
 	function servicescan {
 		echo -ne "${b_purple}[*]${rs} Perform Service Scan? [y/N] >> "
-    read getopt
+		read getopt
 
 		case $getopt in
 			""|[yY]|[yY][eE][sS])
@@ -232,7 +232,7 @@ function select_nmap_options
 
 	function osscan {
 		echo -ne "${b_purple}[*]${rs} Perform OS Fingerprinting? [y/N] >> "
-    read getopt
+		read getopt
 
 		case $getopt in
 			""|[yY]|[yY][eE][sS])
@@ -263,7 +263,7 @@ function select_nmap_options
 	}
 	
 	function allports {
-    echo -ne "${b_purple}[*]${rs} Scan all ports? (${b_green}1-65535${rs}) [y/N] >> "
+		echo -ne "${b_purple}[*]${rs} Scan all ports? (${b_green}1-65535${rs}) [y/N] >> "
 		read getopt
 
 		case $getopt in
@@ -281,7 +281,7 @@ function select_nmap_options
 
 	function timing {
 		echo -ne "${b_purple}[*]${rs} Set scan timing: [${b_green}1-5${rs}] >> "
-    read getopt
+		read getopt
 
 		case $getopt in
 			1)
