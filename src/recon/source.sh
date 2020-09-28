@@ -159,17 +159,17 @@ function nmap_err
 
     case $getopt in
       *)
-		echo -ne "$\n{b_purple[*]${rs} Install nmap? [y/N] >> "
+		echo -ne "\n${b_purple}[*]${rs} Install nmap? [y/N] >> "
 		read getopt
 
         case $getopt in
           ""|[yY]|[yY][eE][sS])
-              echo -e "\n${b_green}[+]${rs} Installing nmap..\n"
+              echo -e "${b_green}[+]${rs} Installing nmap..\n"
               sudo apt-get install -y nmap > /dev/null
               
 
-              echo -ne "${b_green}[+]${rs} Nmap is now installed. >> " getopt
-			  read getopt
+              echo -ne "${b_green}[+]${rs} Nmap is now installed. >> "
+	      read getopt
 
 			  case $getopt in
                   *)
