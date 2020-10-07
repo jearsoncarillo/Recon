@@ -453,9 +453,9 @@ function nmap_scan
                 read -p ">> " getopt
 
                 case $getopt in
-                        *)
-                                show_menu
-                                ;;
+                    *)
+                        show_menu
+                        ;;
                 esac
         else
                 mkdir -p $path/output/nmap/nmap-$HOST
@@ -473,4 +473,47 @@ function nmap_scan
 						;;
                 esac
         fi
+}
+
+function nikto_scan
+{
+    echo -e "\n${b_green}[+]${rs} Executing Nikto Scan.. Scanning Vulnerabilities..\n"
+
+    if [[ $AUTH == 'true' ]]; then
+        AUTH='-id $NIKTO_USER:$NIKTO_PASS'
+    else
+        AUTH=''
+    fi
+
+
+    if [[ $NIKTO_XML == 'true' ]]; then
+        mkdir -p $path/output/nikto/nikto-$HOST
+        NIKTO_OUTPUT="-Format xml -o `echo $path`/output/nikto/nikto-$HOST/VA-SCAN-$HOST.xml"
+    fi
+
+    if [[ $NIKTO_CSV == 'true' ]]; then
+        mkdir -p $path/output/nikto/nikto-$HOST
+        NIKTO_OUTPUT="-Format csv -o `echo $path`/output/nikto/nikto-$HOST/VA-SCAN-$HOST.csv"
+    fi
+
+    if [[ $NIKTO_TXT == 'true' ]]; then
+        mkdir -p $path/output/nikto/nikto-$HOST
+        NIKTO_OUTPUT="-Format txt -o `echo $path`/output/nikto/nikto-$HOST/VA-SCAN-$HOST.txt"
+    fi
+
+    if [[ $SSLSCAN = 'true' ]]; then
+        SSLSCAN='-ssl'
+    fi 
+
+    sudo nikto -h $HOST $AUTH $NIKTO_OUTPUT $SSLSCAN
+
+    echo -e "\n${b_green}[+]${rs} Done. Scan output saved on ${b_yellow}$(find "$(pwd)"/ -type d -name nikto-$HOST)\n${rs}"
+
+    read -p ">> " getopt
+
+    case $getopt in
+        *)
+            show_menu
+            ;;
+    esac
 }

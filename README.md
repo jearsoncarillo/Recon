@@ -29,6 +29,13 @@ May require sudo privileges in performing nmap scans.
 
 
 ---
+
+# Update
+
+Added **nikto** scanner
+
+---
+
 Notes to myself:
 
 Add more modules for pentesting phases. (Maybe)

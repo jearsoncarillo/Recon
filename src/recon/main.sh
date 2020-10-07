@@ -26,10 +26,13 @@ function show_selection
     echo -e "${b_purple}[*]${rs} Please Select a Task to Execute:\n
 [1] View Configuration
 [2] Enumerate a Domain
-[3] Pingsweep
-[4] Portscan
+[3] Bash Pingsweep
+[4] Bash Portscan
 [5] Nmap Scan (Requires sudo)
-${b_green}[6]${rs} Help Screen
+[6] Nikto Scan (Requires sudo)
+[7] Nessus Scan (In Progress)
+[8] Privesc Checker (In Progress)
+${b_green}[9]${rs} Help Screen
 ${b_red}[0]${rs} Exit
 "
 
@@ -57,6 +60,10 @@ ${b_green}[+]${rs} HELP: Targets the website domain, sweeps for subdomains and t
 ${b_purple}[*]${rs} Nmap Scan:
 ${b_green}[+]${rs} HELP: Perform a default scan that can be specified.
           IP Configuration will be targeted on the scanning.
+
+${b_purple}[*]${rs} Nikto Scan:
+${b_green}[+]${rs} HELP: Perform a Vulnerabilty assessment scan on target.
+          IP Configuration will be targetd on the scanning.
 
 ${b_purple}[*]${rs} Output File:
 ${b_green}[+]${rs} HELP: All output file will be sent to ${b_yellow}$(pwd)/output${rs} directory.
@@ -101,7 +108,10 @@ function show_menu
 		5|[nN][mM][aA][pP])
 			start_nmap_scan
 			;;
-		6|[hH]|[hH][eE][lL][pP]) 
+        6|[nN]|[iI][kK][tT][oO])
+            start_nikto_scan
+            ;;
+		9|[hH]|[hH][eE][lL][pP]) 
 			show_help_screen
 			;;
 		0|[qQ]|[qQ][uU][iI][tT])	

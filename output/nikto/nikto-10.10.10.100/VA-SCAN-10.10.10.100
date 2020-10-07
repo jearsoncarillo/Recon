@@ -1,0 +1,8 @@
+"Nikto - v2.1.6/2.1.5"
+"10.10.10.100","10.10.10.100","80","","","","Apache/2.4.43 (Debian)"
+"10.10.10.100","10.10.10.100","80","OSVDB-0","GET","/","The anti-clickjacking X-Frame-Options header is not present."
+"10.10.10.100","10.10.10.100","80","OSVDB-0","GET","/","The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS"
+"10.10.10.100","10.10.10.100","80","OSVDB-0","GET","/","The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type"
+"10.10.10.100","10.10.10.100","80","OSVDB-0","GET","/","Server may leak inodes via ETags, header found with file /, inode: 29cd, size: 5ab6f95341be2, mtime: gzip"
+"10.10.10.100","10.10.10.100","80","OSVDB-0","OPTIONS","/","Allowed HTTP Methods: GET, POST, OPTIONS, HEAD "
+"10.10.10.100","10.10.10.100","80","OSVDB-561","GET","/server-status","This reveals Apache information. Comment out appropriate line in the Apache conf file or restrict access to allowed sources."
