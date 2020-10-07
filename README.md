@@ -12,6 +12,7 @@ Modules:
 - Bash Ping sweep
 - Bash Port scan
 - Nmap Scanner
+- Nikto Web Scanner
 
 Installation
 ```shell
