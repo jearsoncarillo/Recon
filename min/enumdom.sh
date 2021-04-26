@@ -79,12 +79,12 @@ function save_file
         [yY]|[yY][eE][sS])
             get_ip_start
             get_ipaddress | tee -a ./$TARGET-hosts.txt
-            get_ip_end
+	    echo -e "\n[+] Saved file on $(pwd)/$TARGET-hosts.txt"
             ;;
         [nN]|[nN][oO])
             get_ip_start
             get_ipaddress
-	    echo -e "\n[+] Saved file on $(pwd)/$TARGET-hosts.txt"
+	    get_ip_end
             ;;
         *)
             save_file
